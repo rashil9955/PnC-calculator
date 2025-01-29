@@ -1,0 +1,83 @@
+print()
+print()
+print("----- PERMUTATION AND COMBINATION CALCULATOR -----")
+print()
+print()
+
+
+#function to calculate factorial
+def calculate_factorial(input):
+    factorial = 1
+    var = input
+    for x in range(input):
+        factorial = factorial * var
+        var = var-1
+    return factorial
+    
+    
+    
+    
+#fxn to calculate permutation
+def permutation(n, n_r):
+    return(n/n_r)
+
+#fxn to calculate combination
+def combination(n, r, n_r):
+    return(n/(r * n_r))
+    
+    
+#set default to true
+more = True
+
+#set value for multiply to 1
+#in case we have to multiply different combs and premus
+multiply1 = 1
+multiply2 = 1
+
+
+#while loop if in case user wants to continue calculations
+
+while more:
+
+    #ask input for n and r
+    n = int(input("Enter  n: "))
+
+    r = int(input("Enter  r: "))
+
+    #calculate the value of (n-r)! which is in the dneominator of the formula
+    deno = n-r
+
+    
+    print()
+    print("         Permutation --> ", permutation(calculate_factorial(n), calculate_factorial(deno)))
+    
+        
+    print("         Combination --> ", combination(calculate_factorial(n), calculate_factorial(r), calculate_factorial(deno)))
+   
+        
+    
+        
+    print()
+    print()
+    print()
+    
+
+
+    #ask user if they want to repeat
+    #entrs y if want to repeat
+    #if anything else is entered other than y, program ends
+    repeat = input("More?: ")
+    print()
+    if repeat != "Y" and repeat != "y":
+        more = False
+    
+
+
+   
+
+
+
+
+
+
+
