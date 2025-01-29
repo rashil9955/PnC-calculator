@@ -53,15 +53,10 @@ while more:
     
         
     print("         Combination --> ", combination(calculate_factorial(n), calculate_factorial(r), calculate_factorial(deno)))
-   
-        
-    
-        
-    print()
-    print()
-    print()
-    
 
+    print()
+    print()
+    print()
 
     #ask user if they want to repeat
     #entrs y if want to repeat
@@ -70,14 +65,3 @@ while more:
     print()
     if repeat != "Y" and repeat != "y":
         more = False
-    
-
-
-   
-
-
-
-
-
-
-
