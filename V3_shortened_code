@@ -1,0 +1,82 @@
+print()
+print()
+print("----- PERMUTATION AND COMBINATION CALCULATOR -----")
+print()
+print()
+
+# Function to calculate factorial
+def calculate_factorial(input):
+    factorial = 1
+    var = input
+    for x in range(input):
+        factorial = factorial * var
+        var = var - 1
+    return factorial
+
+# Function to calculate permutation
+def permutation(n, n_r):
+    return n / n_r
+
+# Function to calculate combination
+def combination(n, r, n_r):
+    return n / (r * n_r)
+
+# Function to generate all combinations of P and C up to the current iteration
+def generate_combinations(iteration):
+    from itertools import product
+    return [''.join(combo) for combo in product('PC', repeat=iteration)]
+
+# Set default to true
+more = True
+
+# Track the current iteration
+iteration = 0
+
+# Dictionary to store the values of P and C for each iteration
+values = {'P': [], 'C': []}
+
+# While loop if in case user wants to continue calculations
+while more:
+    iteration += 1
+
+    # Ask input for n and r
+    n = int(input("Enter n: "))
+    r = int(input("Enter r: "))
+
+    # Calculate the value of (n-r)! which is in the denominator of the formula
+    deno = n - r
+
+    # Calculate permutation and combination for this iteration
+    perm = permutation(calculate_factorial(n), calculate_factorial(deno))
+    comb = combination(calculate_factorial(n), calculate_factorial(r), calculate_factorial(deno))
+
+    # Store the values of P and C for this iteration
+    values['P'].append(perm)
+    values['C'].append(comb)
+
+    # Generate all combinations of P and C up to the current iteration
+    combinations = generate_combinations(iteration)
+
+    # Display results
+    print()
+    print("         Permutation --> ", perm)
+    print("         Combination --> ", comb)
+    print()
+
+    # Calculate and display the multiplied values for each combination
+    for combo in combinations:
+        result = 1
+        for i, char in enumerate(combo):
+            result *= values[char][i]
+        print(f"         {combo} = {result}")
+
+    print()
+    print()
+
+    # Ask user if they want to repeat
+    # Enters y if want to repeat
+    # If anything else is entered other than y, program ends
+    repeat = input("More?: ")
+    print()
+    if repeat != "Y" and repeat != "y":
+        more = False
