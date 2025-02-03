@@ -65,7 +65,7 @@ python calculator.py
 
 ## Contributing
 
-Feel free to fork this repository and submit pull requests to contribute to this project. You can also open issues for bugs or feature suggestions.
+Feel free to fork this repository and submit pull requests to put contributions to this project. You can also open issues for bugs or feature suggestions.
 
 ## License
 
